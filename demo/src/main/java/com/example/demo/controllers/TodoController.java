@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.Model.Todo;
 import com.example.demo.Service.TodoService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/todo")
 public class TodoController {
@@ -20,7 +22,7 @@ public class TodoController {
 	TodoService todoService;
 
 	@PostMapping("/create")
-	public Todo createTodo(@RequestBody Todo todo) {
+	public Todo createTodo(@Valid @RequestBody Todo todo) {
 
 		return todoService.create(todo);
 		// "Successfully created";
